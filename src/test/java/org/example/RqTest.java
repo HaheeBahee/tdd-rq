@@ -83,4 +83,27 @@ public class RqTest {
 
         assertThat(paramValue).isEqualTo("홍길동");
     }
+
+    //성공한 레드 케이스를 만들었음에도 의미있다. 나중에 코드 추가하다보면 실패할 수도 있다. 그래서 테스트 케이스는 다다익선이다.
+    @Test
+    @DisplayName("입력값 : \"등록?고향=서울&이름=홍길동&성별=남자\" : getParam(\"이름\"): 홍길동")
+    void t8() {
+
+        Rq rq = new Rq("등록?고향=서울&이름=홍길동");
+
+        String paramValue = rq.getParam("이름", ""); //
+
+        assertThat(paramValue).isEqualTo("홍길동");
+    }
+
+    @Test
+    @DisplayName("입력값 : \"등록?고향=서울&이름=홍길동&성별=남자\" : getParam(\"이름\"): 홍길동")
+    void t9() {
+
+        Rq rq = new Rq("등록?고향=서울&이름=홍길동");
+
+        String paramValue = rq.getParam("이름", ""); //
+
+        assertThat(paramValue).isEqualTo("홍길동");
+    }
 }
